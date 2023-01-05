@@ -32,6 +32,15 @@ const Login = (props) => {
     };
   }, [enteredEmail, enteredPassword]); // Dependencies acts as watcher for the variable value changes inside the dependencies array,
 
+  // Without dependencies array, this code below will run every single time when state changes, adding dependecies will ensure only it runs once when component renders
+  useEffect(() => {
+    console.log("USEEFFECT running without dependency!");
+
+    return () => {
+      console.log("USE EFFECT CLEANUP running without dependency");
+    };
+  });
+
   const emailChangeHandler = (event) => {
     setEnteredEmail(event.target.value);
   };
@@ -51,6 +60,11 @@ const Login = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
     props.onLogin(enteredEmail, enteredPassword);
+  };
+
+  const clearFormHandler = () => {
+    setEnteredPassword("");
+    setEnteredEmail("");
   };
 
   return (
@@ -87,6 +101,14 @@ const Login = (props) => {
         <div className={classes.actions}>
           <Button type="submit" className={classes.btn} disabled={!formIsValid}>
             Login
+          </Button>
+          &nbsp;
+          <Button
+            type="reset"
+            className={classes.btn}
+            onClick={clearFormHandler}
+          >
+            Reset
           </Button>
         </div>
       </form>
