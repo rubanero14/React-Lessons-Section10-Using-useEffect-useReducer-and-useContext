@@ -14,9 +14,22 @@ const Login = (props) => {
   // useEffect takes 2 params, a callback function and array of dependencies. In React context, useEffect is similar to Computed and Watch method in Vue combined
   // In dependencies array, only pass the all the variable names that are used within useEffect block scope, in this context entredEmail and enteredPassword
   useEffect(() => {
-    setFormIsValid(
-      enteredEmail.includes("@") && enteredPassword.trim().length > 6
-    );
+    const identifier = setTimeout(() => {
+      console.log("Checking input valididity...");
+      setFormIsValid(
+        enteredEmail.includes("@") && enteredPassword.trim().length > 6
+      );
+    }, 500);
+
+    // This is called as Clean Up (Debouncing method) function where this return wont run on the first render, but subsequent render and unmount state,
+    // it will be running first and the other code above
+    return () => {
+      // This function will ensure the code above the return statement only runs omce, suitable for running HTTP request code based on keystroke
+      console.log("Cleanup");
+
+      // Resetting the timer of the identifier variable on every keystroke.
+      clearTimeout(identifier);
+    };
   }, [enteredEmail, enteredPassword]); // Dependencies acts as watcher for the variable value changes inside the dependencies array,
 
   const emailChangeHandler = (event) => {
