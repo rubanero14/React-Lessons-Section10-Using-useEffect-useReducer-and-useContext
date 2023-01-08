@@ -111,6 +111,8 @@ const Login = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
+
+    // Sending new user data using props function to parent component to update new list or array of users whenever add use button is clicked
     props.onLogin(loginState.email.val, loginState.password.val);
   };
 
@@ -137,7 +139,6 @@ const Login = (props) => {
             onBlur={validateEmailHandler}
           />
         </div>
-        {loginState.email.val}
         <div
           className={`${classes.control} ${
             !loginState.password.isValid ? classes.invalid : ""
