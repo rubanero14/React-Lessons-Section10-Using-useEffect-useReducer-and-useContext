@@ -4,48 +4,72 @@ import Card from "../UI/Card/Card";
 import classes from "./Login.module.css";
 import Button from "../UI/Button/Button";
 
-// State management helper function
-const formReducer = (state, action) => {
-  if (action.mode === "email") {
-    console.log("email", action.val, action.val.includes("@"));
-    if (action.type === "EMAIL_INPUT") {
-      return {
-        emailValue: action.val.trim(),
-        isValid: action.val.includes("@"),
-      };
-    }
-
-    if (action.type === "EMAIL_BLUR") {
-      return {
-        emailValue: state.val.trim(),
-        isValid: state.val.includes("@"),
-      };
-    }
-  }
-
-  if (action.mode === "password") {
-    console.log("email", action.val, action.val.trim().length > 6);
-    if (action.type === "PASSWORD_INPUT") {
-      return {
-        passwordValue: action.val.trim(),
-        isValid: action.val.trim().length > 6,
-      };
-    }
-
-    if (action.type === "PASSWORD_BLUR") {
-      return {
-        passwordValue: state.val.trim(),
-        isValid: state.val.trim().length > 6,
-      };
-    }
-  }
-
-  return {
-    isValid: true,
-  };
-};
-
 const Login = (props) => {
+  // State management helper function
+  const emailValidator = /^\S+@\S+\.\S+$/gi; // email validator regex
+
+  const formReducer = (state, action) => {
+    if (action.mode === "email") {
+      if (action.type === "EMAIL_INPUT") {
+        return {
+          emailValue: action.val,
+          isValid: emailValidator.test(action.val),
+        };
+      }
+
+      if (action.type === "EMAIL_BLUR") {
+        return {
+          emailValue: state.val.trim(),
+          isValid: emailValidator.test(state.val.trim()),
+        };
+      }
+    }
+
+    if (action.mode === "password" && emailValidator.test(action.val)) {
+      if (action.type === "PASSWORD_INPUT") {
+        return {
+          passwordValue: action.val.trim(),
+          isValid: action.val.trim().length > 6,
+        };
+      }
+
+      if (action.type === "PASSWORD_BLUR") {
+        return {
+          passwordValue: state.val.trim(),
+          isValid: state.val.trim().length > 6,
+        };
+      }
+    }
+
+    return {
+      isValid: true,
+    };
+  };
+  /*
+    // 
+      Using Destructuring to pulling out isValid properties from emailState and passwordState object and storing them into emailIsValid and passIsValid constants 
+      using alias assignment, and use it as dependencies and values to useEffect below to ensure it dont fires futher if form is already valid
+    //
+    const { isValid: emailIsValid } = emailState;
+    const { isValid: passwordIsValid } = passwordState;
+    useEffect(() => {
+      const identifier = setTimeout(() => {
+        console.log("Checking input valididity...");
+        setFormIsValid(emailIsValid && passwordIsValid);
+      }, 500);
+
+      // This is called as Clean Up (Debouncing method) function where this return wont run on the first render, but subsequent render and unmount state,
+      // it will be running first and the other code above
+      return () => {
+        // This function will ensure the code above the return statement only runs omce, suitable for running HTTP request code based on keystroke
+        console.log("Cleanup");
+
+        // Resetting the timer of the identifier variable on every keystroke.
+        clearTimeout(identifier);
+      };
+    }, [emailIsValid, passwordIsValid]);
+  */
+
   // State management useReducers
   const [emailState, dispatchEmail] = useReducer(formReducer, {
     emailValue: "",
@@ -112,7 +136,7 @@ const Login = (props) => {
           <input
             type="email"
             id="email"
-            value={emailState.emailValue}
+            value={emailState.isValid ? emailState.emailValue : null}
             onChange={emailChangeHandler}
             onBlur={validateEmailHandler}
           />
@@ -145,6 +169,10 @@ const Login = (props) => {
             className={classes.btn}
             onClick={clearFormHandler}
           >
+            Reset
+          </Button>
+          &nbsp;
+          <Button type="link" className={classes.btn} href="">
             Reset
           </Button>
         </div>
