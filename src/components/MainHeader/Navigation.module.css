@@ -30,6 +30,10 @@
   cursor: pointer;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.26);
   border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  fill: #fff
 }
 
 .nav button:focus {

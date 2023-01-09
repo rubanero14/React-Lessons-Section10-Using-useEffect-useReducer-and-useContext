@@ -13,7 +13,7 @@
 
 .main-header h1 {
   color: white;
-  font-size: 40px;
+  font-size: 30px;
 }
 
 @media (width <= 776px) {
