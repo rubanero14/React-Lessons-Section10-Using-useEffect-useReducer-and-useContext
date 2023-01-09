@@ -5,3 +5,13 @@
   margin: 2rem auto;
   text-align: center;
 }
+
+.home h1 {
+  font-size: 40px;
+}
+
+@media (width <= 600px) {
+  .home h1 {
+    font-size: 20px;
+  }
+}
