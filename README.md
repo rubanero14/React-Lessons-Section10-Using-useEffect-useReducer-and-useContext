@@ -7,7 +7,7 @@ What does it do? Simplifies handling complex states / related states.
 
 Example: 
 ```
-const [state,dispatch] = useReducer(reducer, initial state);
+const [state, dispatch] = useReducer(reducer, initial state);
 ```
 
 So, in your Login () function you want a line.
