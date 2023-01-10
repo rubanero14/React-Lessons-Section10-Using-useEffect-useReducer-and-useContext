@@ -119,7 +119,13 @@ const Login = (props) => {
 
   const clearFormHandler = () => {
     dispatchLogin({
-      ...initialState,
+      type: "PASSWORD_INPUT",
+      val: "",
+    });
+
+    dispatchLogin({
+      type: "EMAIL_INPUT",
+      val: "",
     });
   };
 
