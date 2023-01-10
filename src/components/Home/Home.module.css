@@ -4,6 +4,7 @@
   padding: 3rem;
   margin: 2rem auto;
   text-align: center;
+  display: block;
 }
 
 .home h1 {
@@ -11,6 +12,10 @@
   color: transparent;
   background: linear-gradient(90deg, #6c7cd3, #da79ee);
   background-clip: text;
+}
+
+.home button {
+  margin: auto;
 }
 
 @media (width <= 600px) {
