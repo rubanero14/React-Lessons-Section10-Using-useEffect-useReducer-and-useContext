@@ -1,7 +1,7 @@
 .button {
   font: inherit;
-  border: 1px solid #4f005f;
-  background: #4f005f;
+  background: linear-gradient(90deg, #fd7ebe, #8e1da5);
+  border: none;
   color: white;
   padding: 5px 20px;
   cursor: pointer;
@@ -16,8 +16,7 @@
 
 .button:hover,
 .button:active {
-  background: #741188;
-  border-color: #741188;
+  background: linear-gradient(90deg, #fd7ebe, #cf2ef0);;
 }
 
 .button:focus {
