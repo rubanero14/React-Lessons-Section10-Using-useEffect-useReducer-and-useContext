@@ -20,6 +20,7 @@ function App() {
     // But it's just a dummy/ demo anyways
     localStorage.setItem("login", "yes");
     localStorage.setItem("userName", email);
+    setUserName(email);
     setIsLoggedIn(true);
   };
 

@@ -8,7 +8,9 @@
 
 .home h1 {
   font-size: 30px;
-  color: #999
+  color: transparent;
+  background: linear-gradient(90deg, #6c7cd3, #da79ee);
+  background-clip: text;
 }
 
 @media (width <= 600px) {
