@@ -24,6 +24,14 @@
   margin-bottom: 0.5rem;
 }
 
+.control p {
+  font-weight: bold;
+  flex: 1;
+  margin-top: 0.3rem;
+  color: red;
+  margin-bottom: 0.5rem;
+}
+
 .control input {
   flex: 3;
   font: inherit;

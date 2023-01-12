@@ -145,6 +145,9 @@ const Login = (props) => {
             onChange={emailChangeHandler}
             onBlur={validateEmailHandler}
           />
+          {!loginState.email.isValid && (
+            <p>Please input valid email address!</p>
+          )}
         </div>
         <div
           className={`${classes.control} ${
@@ -159,6 +162,9 @@ const Login = (props) => {
             onChange={passwordChangeHandler}
             onBlur={validatePasswordHandler}
           />
+          {!loginState.password.isValid && (
+            <p>Please input valid password with minimum 6 characters!</p>
+          )}
         </div>
         <div className={classes.actions}>
           <Button
