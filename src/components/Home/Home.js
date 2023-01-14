@@ -11,7 +11,7 @@ const Home = (props) => {
     .replaceAll(/[^\w|^\d]/gi, " ");
 
   const name = formattedUserName.split(" ").map((name) => {
-    return name[0].toUpperCase() + name.slice(1).toLowerCase() + " ";
+    return (name[0].toUpperCase() + name.slice(1).toLowerCase() + " ").trim();
   });
 
   return (
