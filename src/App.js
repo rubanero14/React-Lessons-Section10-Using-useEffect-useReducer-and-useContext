@@ -36,6 +36,7 @@ function App() {
     <AuthContext.Provider
       value={{
         isLoggedIn: isLoggedIn,
+        onLogout: logoutHandler,
       }}
     >
       {
@@ -47,8 +48,10 @@ function App() {
         // With that adding this state component as wrapper, we dont need <React.Fragment> as root component, hence this AuthContext can take its place
         // Since we are passing state using AuthContext value props to sub components, we dont need pass props via components anymore, and can remove the chain of props from
         // the component tree
+        // Not only we can pass values of state via .Provider component, we also can pass functions as values as well (as exmaple above), in this case passing onLogout key with
+        // logoutHandle function, by doing this we can remove props chaining from sub-component trees since context handles this state management directly
       }
-      <MainHeader onLogout={logoutHandler} />
+      <MainHeader />
       <main>
         {!isLoggedIn && <Login onLogin={loginHandler} />}
         {isLoggedIn && <Home onLogout={logoutHandler} userName={userName} />}
