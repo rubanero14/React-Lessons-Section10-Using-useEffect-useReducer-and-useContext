@@ -1,22 +1,23 @@
 # React-Lessons-Section10-Using-useEffect-useReducer-and-useContext
 
-
 ## useReducer
 
 What does it do? Simplifies handling complex states / related states.
 
-Example: 
+Example:
+
 ```
 const [state, dispatch] = useReducer(reducer, initial state);
 ```
 
 So, in your Login () function you want a line.
+
 ```
 const [loginState, dispatchLogin] = useReducer(formReducer, initialState.login);
 ```
 
+What is the "initial state"? For email and password we want value = '' and isValid= false, so I created an object before the Login() ..
 
-What is the "initial state"?  For email and password we want value = '' and isValid= false, so I created an object before the Login() ..
 ```
 const emailValidator = /^\S+@\S+\.\S+$/gi; // email validator regex
 
@@ -87,13 +88,13 @@ So, where/how to call these actions that the reducer handles? Good question. Whe
 
 Changing email input - <code>onChange = {emailChangeHandler}</code>
 
-Email lost focus - onBlur = <code>{validateEmailHandler}</code>
+Email lost focus - <code>onBlur = {validateEmailHandler}</code>
 
-Changing password input - onChange = <code>{passwordChangeHandler}</code>
+Changing password input - <code>onChange = {passwordChangeHandler}</code>
 
-Password lost focus - onBlur = <code>{validatePasswordHandler}</code>
+Password lost focus - <code>onBlur = {validatePasswordHandler}</code>
 
-ok thats where these "actions" are being handled now, and how they are being handled, by using onChange or onBlur on input lines.  But now, with reducer we use dispatch function. Dispatch function sends an "action"  to the reducer function using an object with {type='name-of-action' and value = 'new-data-to-be-added-to-state').
+ok thats where these "actions" are being handled now, and how they are being handled, by using onChange or onBlur on input lines. But now, with reducer we use dispatch function. Dispatch function sends an "action" to the reducer function using an object with {type='name-of-action' and value = 'new-data-to-be-added-to-state').
 
 We could keep the same onChange and onBlur as above, and just change the called functions as follows:
 
