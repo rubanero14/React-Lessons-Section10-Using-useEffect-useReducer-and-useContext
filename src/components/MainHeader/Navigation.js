@@ -55,14 +55,14 @@ const Navigation = () => {
         // This will be the simplest way of implementing AuthContext listener on the sub-components which needs its state
       }
       <ul>
-        {authCtx.isLoggedIn && (
+        {/* {authCtx.isLoggedIn && (
           <li>
             <a href="/">Users</a>
           </li>
-        )}
+        )} */}
         {authCtx.isLoggedIn && (
           <li>
-            <a href="/">Admin</a>
+            <span>User: {authCtx.name}</span>
           </li>
         )}
         {authCtx.isLoggedIn && (

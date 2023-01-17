@@ -11,6 +11,13 @@
   margin-left: 2rem;
 }
 
+.nav li span {
+  color: transparent;
+  background: linear-gradient(90deg, #f8d4f0, #dee0ff);
+  background-clip: text;
+  font-weight: 700;
+}
+
 .nav a {
   text-decoration: none;
   color: white;

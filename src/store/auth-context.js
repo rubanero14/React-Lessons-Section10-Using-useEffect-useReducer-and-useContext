@@ -7,6 +7,7 @@ const AuthContext = React.createContext({
   onLogin: (email, password) => {}, // same as above, but this time it has params as loginHandler needs params
   userName: "",
   password: "",
+  name: "",
 });
 
 // Instead of applying values inside App.js using AuthContext.Provider component, we can declare here under Context Management method to create the component here
@@ -15,6 +16,7 @@ export const AuthContextProvider = (props) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
 
   useEffect(() => {
     if (localStorage.getItem("login") === "yes") {
@@ -41,6 +43,22 @@ export const AuthContextProvider = (props) => {
     setIsLoggedIn(false);
   };
 
+  useEffect(() => {
+    if (userName !== "") {
+      const formattedUserName = userName
+        .split("@")[0]
+        .replaceAll(/[^\w|^\d]/gi, " ");
+
+      setName(
+        formattedUserName.split(" ").map((name) => {
+          return (name[0].toUpperCase() + name.slice(1).toLowerCase() + " ")
+            .trim()
+            .toUpperCase();
+        })
+      );
+    }
+  }, [userName]);
+
   return (
     <AuthContext.Provider
       value={{
@@ -49,6 +67,7 @@ export const AuthContextProvider = (props) => {
         onLogin: loginHandler,
         userName: userName,
         password: password,
+        name: name,
       }}
     >
       {props.children}

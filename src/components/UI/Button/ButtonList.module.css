@@ -1,4 +1,4 @@
-.listItems {
+.buttonList {
     margin-block-start: 0;
     margin-block-end: 0;
     padding-inline-start: 0;
@@ -9,27 +9,27 @@
     flex-direction: column;
 }
 
-.listItems li {
+.buttonList li {
     margin-bottom: 15px;
     margin-right: 10px;
     width: 150px;
 }
 
-    .listItems li:last-child {
+    .buttonList li:last-child {
         margin-bottom: 30px;
     }
 
-.listItems a {
+.buttonList a {
     width: 100%;
 }
 
 @media (width <= 992px) {
-    .listItems li {
+    .buttonList li {
         margin-right: -3px;
         margin-left: -5px;
     }
     
-    .listItems li {
+    .buttonList li {
         width: 100%;
     }
 }
