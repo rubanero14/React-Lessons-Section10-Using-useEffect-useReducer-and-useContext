@@ -10,7 +10,7 @@ const ListItem = (props) => {
       {props.lists.map((list) => (
         <li>
           <h3>
-            Learn about &nbsp;
+            Learn more about &nbsp;
             <Button type="link" href={list.link}>
               <code>{list.text}</code>
             </Button>
