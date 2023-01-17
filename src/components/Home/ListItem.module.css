@@ -1,0 +1,32 @@
+.listItems {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
+    list-style: none;
+}
+
+.listItems h3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+    margin-top: 0;
+    color: transparent;
+    background: linear-gradient(90deg, #3d4679, #752885);
+    background-clip: text;
+}
+
+.listItems a {
+    width: fit-content;
+    margin-bottom: 0;
+}
+
+.listItems li:last-child {
+    margin-bottom: 30px;
+}
+
+@media (width <= 992px) {
+    .listItems h3 {
+        font-size: 15px;
+    }
+}
