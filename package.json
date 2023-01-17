@@ -1,6 +1,7 @@
 {
-  "name": "react-complete-guide",
+  "name": "react-hooks-guide",
   "version": "0.1.0",
+  "author": "Raj",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.6",
