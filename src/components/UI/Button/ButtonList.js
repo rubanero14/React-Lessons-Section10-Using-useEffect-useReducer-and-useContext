@@ -8,7 +8,7 @@ const ButtonList = (props) => {
   return (
     <ul className={styles.buttonList}>
       {props.lists.map((list) => (
-        <li key={props.lists.indexOf(list)} id={props.lists.indexOf(list)}>
+        <li key={list.id} id={list.id}>
           <Button type="link" href={list.href}>
             <code>{list.btnContent}</code>
           </Button>
