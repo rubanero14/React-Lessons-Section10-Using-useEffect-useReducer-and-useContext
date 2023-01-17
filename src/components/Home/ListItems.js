@@ -8,14 +8,10 @@ const ListItem = (props) => {
   return (
     <ul className={styles.listItems}>
       {props.lists.map((list) => (
-        <li>
-          <h3>
-            Learn more about &nbsp;
-            <Button type="link" href={list.link}>
-              <code>{list.text}</code>
-            </Button>
-            &nbsp; Hook!
-          </h3>
+        <li key={list.text}>
+          <Button type="link" href={list.link}>
+            <code>{list.text}</code>
+          </Button>
         </li>
       ))}
     </ul>
