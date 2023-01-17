@@ -1,9 +1,10 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useContext } from "react";
 
 import Card from "../UI/Card/Card";
 import classes from "./Login.module.css";
 import Button from "../UI/Button/Button";
 import SVG from "../UI/SVG/SVG";
+import AuthContext from "../../store/auth-context";
 
 // State management helper function
 const emailValidator = /^\S+@\S+\.\S+$/gi; // email validator regex
@@ -84,6 +85,8 @@ const Login = (props) => {
     initialState.login
   );
 
+  const authCtx = useContext(AuthContext);
+
   const emailChangeHandler = (event) => {
     dispatchLogin({
       type: "EMAIL_INPUT",
@@ -114,7 +117,7 @@ const Login = (props) => {
     event.preventDefault();
 
     // Sending new user data using props function to parent component to update new list or array of users whenever add use button is clicked
-    props.onLogin(loginState.email.val, loginState.password.val);
+    authCtx.onLogin(loginState.email.val, loginState.password.val);
   };
 
   const clearFormHandler = () => {
@@ -141,7 +144,7 @@ const Login = (props) => {
           <input
             type="email"
             id="email"
-            value={loginState.email.val}
+            value={loginState.email.val ?? authCtx.email}
             onChange={emailChangeHandler}
             onBlur={validateEmailHandler}
           />
@@ -158,7 +161,7 @@ const Login = (props) => {
           <input
             type="password"
             id="password"
-            value={loginState.password.val}
+            value={loginState.password.val ?? authCtx.password}
             onChange={passwordChangeHandler}
             onBlur={validatePasswordHandler}
           />

@@ -1,44 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
 
 import Login from "./components/Login/Login";
 import Home from "./components/Home/Home";
 import MainHeader from "./components/MainHeader/MainHeader";
-
 import AuthContext from "./store/auth-context";
 
-function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userName, setUserName] = useState("");
-
-  useEffect(() => {
-    if (localStorage.getItem("login") === "yes") {
-      setIsLoggedIn(true);
-      setUserName(localStorage.getItem("userName"));
-    }
-  }, []);
-
-  const loginHandler = (email, password) => {
-    // We should of course check email and password
-    // But it's just a dummy/ demo anyways
-    localStorage.setItem("login", "yes");
-    localStorage.setItem("userName", email);
-    setUserName(email);
-    setIsLoggedIn(true);
-  };
-
-  const logoutHandler = () => {
-    localStorage.removeItem("login");
-    localStorage.removeItem("userName");
-    setIsLoggedIn(false);
-  };
-
+const App = () => {
+  const authCtx = useContext(AuthContext);
   return (
-    <AuthContext.Provider
-      value={{
-        isLoggedIn: isLoggedIn,
-        onLogout: logoutHandler,
-      }}
-    >
+    <React.Fragment>
       {
         // AuthContext.Provider is not a JSX component but a state component where we wrap the components uses the state provided by AuthContext state
         // AuthContext must have value prop and store the AuthContext state as copy to enable value changes based on user interaction
@@ -53,11 +23,11 @@ function App() {
       }
       <MainHeader />
       <main>
-        {!isLoggedIn && <Login onLogin={loginHandler} />}
-        {isLoggedIn && <Home onLogout={logoutHandler} userName={userName} />}
+        {!authCtx.isLoggedIn && <Login />}
+        {authCtx.isLoggedIn && <Home />}
       </main>
-    </AuthContext.Provider>
+    </React.Fragment>
   );
-}
+};
 
 export default App;
