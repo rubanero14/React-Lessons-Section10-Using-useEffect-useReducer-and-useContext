@@ -21,8 +21,12 @@ export const AuthContextProvider = (props) => {
   useEffect(() => {
     if (localStorage.getItem("login") === "yes") {
       setIsLoggedIn(true);
-      setUserName(localStorage.getItem("userName"));
-      setPassword(localStorage.getItem("password"));
+      if (localStorage.getItem("userName")) {
+        setUserName(localStorage.getItem("userName"));
+      }
+      if (localStorage.getItem("password")) {
+        setPassword(localStorage.getItem("password"));
+      }
     }
   }, []);
 
