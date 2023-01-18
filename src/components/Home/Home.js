@@ -19,23 +19,22 @@ const Home = () => {
       "useEffect",
       "useReducer",
       "useContext",
+      "useRef",
+      "useImperativeHandle",
+      "useId",
+      "useMemo",
       "useCallback",
       "useDebugValue",
       "useDeferredValue",
-      "useId",
-      "useImperativeHandle",
       "useInsertionEffect",
       "useLayoutEffect",
-      "useMemo",
-      "useRef",
       "useSyncExternalStore",
       "useTransition",
     ];
 
-    if (HooksData.listData.length > 0) {
-      return;
-    } else {
-      HooksData.createNewList([...hooks]);
+    // Populating List of Hooks in array above dynamically while ensuring Garbage Collection is enforced
+    if (HooksData.listData.length === 0) {
+      HooksData.createNewList(hooks);
     }
   }, [authCtx.isLoggedIn]);
 
