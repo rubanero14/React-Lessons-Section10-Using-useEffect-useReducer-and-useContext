@@ -15,11 +15,14 @@
   fill: white;
   width: fit-content;
   margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .button:hover,
 .button:active {
   background: linear-gradient(90deg, #fd7ebe, #cf2ef0);
+  transform: scale(1.05);
 }
 
 .button:focus {

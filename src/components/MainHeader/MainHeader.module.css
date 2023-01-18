@@ -23,7 +23,14 @@
   fill: white;
   height: 30px;
   width: 30px;
+  transition: all 0.3s ease;
   animation: rotate 8s linear infinite;
+}
+
+.main-header h1 svg:hover {
+  animation: rotateX10 8s linear infinite;
+  height: 40px;
+  width: 40px;
 }
 
 @media (width <= 600px) {
@@ -39,6 +46,11 @@
     height: 40px;
     width: 40px;
   }
+
+    .main-header h1 svg:hover {
+      height: 50px;
+      width: 50px;
+    }
 }
 
 @keyframes rotate {
@@ -48,5 +60,15 @@
 
   to {
     transform: rotateZ(360deg);
+  }
+}
+
+@keyframes rotateX10 {
+  from {
+    transform: rotateZ(0);
+  }
+
+  to {
+    transform: rotateZ(7200deg);
   }
 }
