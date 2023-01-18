@@ -9,7 +9,11 @@ const ButtonList = (props) => {
     <ul className={styles.buttonList}>
       {props.lists.map((list) => (
         <li key={list.id} id={list.id}>
-          <Button type="link" href={list.href}>
+          <Button
+            type="link"
+            href={list.href}
+            title={"Link to official doc on learning " + list.btnContent}
+          >
             <code>{list.btnContent}</code>
           </Button>
         </li>

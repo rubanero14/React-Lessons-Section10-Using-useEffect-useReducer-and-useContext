@@ -59,7 +59,7 @@
   align-items: center;
 }
 
-@media (width <= 500px) {
+@media (width <= 600px) {
   .actions {
     display: block;
     text-align: center;

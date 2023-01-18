@@ -11,6 +11,7 @@ const Button = (props) => {
           href={props.href}
           target="_blank"
           rel="noreferrer"
+          title={props.title}
         >
           {props.children}
         </a>
@@ -21,6 +22,7 @@ const Button = (props) => {
           className={`${classes.button} ${props.className}`}
           onClick={props.onClick}
           disabled={props.disabled}
+          title={props.title}
         >
           {props.children}
         </button>

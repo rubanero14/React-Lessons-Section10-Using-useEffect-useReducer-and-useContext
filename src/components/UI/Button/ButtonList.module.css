@@ -8,19 +8,15 @@
 .buttonList li {
     margin-bottom: 15px;
     margin-right: 10px;
-    width: 130px;
+    width: 220px;
     display: inline-block;
 }
-
-    .buttonList li:last-child {
-        margin-bottom: 30px;
-    }
 
 .buttonList a {
     width: 100%;
 }
 
-@media (width <= 500px) {
+@media (width <= 600px) {
     .buttonList li {
         margin-right: -3px;
         margin-left: -5px;

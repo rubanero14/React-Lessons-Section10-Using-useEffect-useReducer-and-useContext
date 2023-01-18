@@ -28,7 +28,15 @@
   margin: auto;
 }
 
-@media (width <= 992px) {
+.home hr {
+  margin: 10px 0 30px 0;
+  height: 5px;
+  border-radius: 4px;
+  border: none;
+  background: linear-gradient(90deg, #848cbe, #f36fcb);
+}
+
+@media (width <= 600px) {
   .home h1 {
     font-size: 30px;
   }

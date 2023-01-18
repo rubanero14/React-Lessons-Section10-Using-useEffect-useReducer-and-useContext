@@ -176,6 +176,7 @@ const Login = (props) => {
             disabled={
               !(loginState.password.isValid && loginState.email.isValid)
             }
+            title="Login button"
           >
             <SVG
               viewBox="0 0 512 512"
@@ -188,6 +189,7 @@ const Login = (props) => {
             type="reset"
             className={classes.btn}
             onClick={clearFormHandler}
+            title="Reset form inputs button"
           >
             <SVG
               viewBox="0 0 512 512"
@@ -200,6 +202,7 @@ const Login = (props) => {
             type="link"
             className={classes.btn}
             href="https://github.com/rubanero14/React-Lessons-Section10-Using-useEffect-useReducer-and-useContext"
+            title="Source code link"
           >
             <SVG
               viewBox="0 0 640 512"
