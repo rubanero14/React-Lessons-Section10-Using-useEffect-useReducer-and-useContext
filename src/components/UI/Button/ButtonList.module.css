@@ -3,16 +3,13 @@
     margin-block-end: 0;
     padding-inline-start: 0;
     list-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
 }
 
 .buttonList li {
     margin-bottom: 15px;
     margin-right: 10px;
-    width: 150px;
+    width: 130px;
+    display: inline-block;
 }
 
     .buttonList li:last-child {
@@ -23,13 +20,10 @@
     width: 100%;
 }
 
-@media (width <= 992px) {
+@media (width <= 500px) {
     .buttonList li {
         margin-right: -3px;
         margin-left: -5px;
-    }
-    
-    .buttonList li {
         width: 100%;
     }
 }
