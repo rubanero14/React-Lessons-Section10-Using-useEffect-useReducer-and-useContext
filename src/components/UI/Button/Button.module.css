@@ -18,7 +18,7 @@
 
 .button:hover,
 .button:active {
-  background: linear-gradient(90deg, #fd7ebe, #cf2ef0);;
+  background: linear-gradient(90deg, #fd7ebe, #cf2ef0);
 }
 
 .button:focus {
