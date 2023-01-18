@@ -52,3 +52,13 @@
   color: #f3cafb;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.26);
 }
+
+@media (width <=600px) {
+  .nav button span {
+    display: none;
+  }
+
+    .nav button svg {
+      margin-right: 0;
+    }
+}

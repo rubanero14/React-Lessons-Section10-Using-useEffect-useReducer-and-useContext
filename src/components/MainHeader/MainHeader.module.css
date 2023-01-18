@@ -14,10 +14,39 @@
 .main-header h1 {
   color: white;
   font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-header h1 svg {
+  fill: white;
+  height: 30px;
+  width: 30px;
+  animation: rotate 8s linear infinite;
 }
 
 @media (width <= 600px) {
   .main-header h1 {
     font-size: 20px;
+  }
+    .main-header h1 span{
+      display: none;
+    }
+
+  .main-header h1 svg {
+    fill: white;
+    height: 40px;
+    width: 40px;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotateZ(0);
+  }
+
+  to {
+    transform: rotateZ(360deg);
   }
 }
