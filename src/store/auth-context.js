@@ -55,9 +55,11 @@ export const AuthContextProvider = (props) => {
 
       setName(
         formattedUserName.split(" ").map((name) => {
-          return (name[0].toUpperCase() + name.slice(1).toLowerCase() + " ")
-            .trim()
-            .toUpperCase();
+          return (
+            name[0].toUpperCase() +
+            name.slice(1).toLowerCase() +
+            " "
+          ).trim();
         })
       );
     }

@@ -11,6 +11,8 @@ import AuthContext from "../../store/auth-context";
 import HooksData from "../../utils/hooks-data";
 
 const Home = () => {
+  const authCtx = useContext(AuthContext);
+
   useEffect(() => {
     const hooks = [
       "useState",
@@ -30,10 +32,13 @@ const Home = () => {
       "useTransition",
     ];
 
-    HooksData.createNewList(hooks);
-  }, []);
+    if (HooksData.listData.length > 0) {
+      return;
+    } else {
+      HooksData.createNewList([...hooks]);
+    }
+  }, [authCtx.isLoggedIn]);
 
-  const authCtx = useContext(AuthContext);
   return (
     <Card className={classes.home}>
       <h1>Welcome back {authCtx.name}!</h1>
