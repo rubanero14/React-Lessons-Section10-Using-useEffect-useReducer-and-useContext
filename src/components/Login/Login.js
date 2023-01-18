@@ -1,4 +1,4 @@
-import React, { useReducer, useContext } from "react";
+import React, { useReducer, useContext, useRef } from "react";
 
 import Card from "../UI/Card/Card";
 import Button from "../UI/Button/Button";
@@ -90,6 +90,9 @@ const Login = (props) => {
 
   const authCtx = useContext(AuthContext);
 
+  const emailInputRef = useRef();
+  const passwordInputRef = useRef();
+
   const emailChangeHandler = (event) => {
     dispatchLogin({
       type: "EMAIL_INPUT",
@@ -119,8 +122,16 @@ const Login = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
 
-    // Sending new user data using props function to parent component to update new list or array of users whenever add use button is clicked
-    authCtx.onLogin(loginState.email.val, loginState.password.val);
+    if (loginState.password.isValid && loginState.email.isValid) {
+      // Sending new user data using props function to parent component to update new list or array of users whenever add use button is clicked
+      authCtx.onLogin(loginState.email.val, loginState.password.val);
+    } else if (!loginState.email.isValid) {
+      // .focusInput() is a method I declared in input component when to activate focus on the input
+      emailInputRef.current.focusInput();
+    } else {
+      // .focusInput() is a method I declared in input component when to activate focus on the input, also exposed by the object returned on the child component using useImperativeHandle hook object
+      passwordInputRef.current.focusInput();
+    }
   };
 
   const clearFormHandler = () => {
@@ -148,6 +159,7 @@ const Login = (props) => {
           isValid={!loginState.email.isValid}
           label="E-Mail"
           validatorMessage="Please input valid email address!"
+          ref={emailInputRef}
         />
         <Input
           inputType="password"
@@ -159,16 +171,10 @@ const Login = (props) => {
           isValid={!loginState.password.isValid}
           label="Password"
           validatorMessage="Please input valid password with minimum 6 characters!"
+          ref={passwordInputRef}
         />
         <div className={classes.actions}>
-          <Button
-            type="submit"
-            className={classes.btn}
-            disabled={
-              !(loginState.password.isValid && loginState.email.isValid)
-            }
-            title="Login button"
-          >
+          <Button type="submit" className={classes.btn} title="Login button">
             <SVG
               viewBox="0 0 512 512"
               d="M352 96h64c17.7 0 32 14.3 32 32V384c0 17.7-14.3 32-32 32H352c-17.7 0-32 14.3-32 32s14.3 32 32 32h64c53 0 96-43 96-96V128c0-53-43-96-96-96H352c-17.7 0-32 14.3-32 32s14.3 32 32 32zm-7.5 177.4c4.8-4.5 7.5-10.8 7.5-17.4s-2.7-12.9-7.5-17.4l-144-136c-7-6.6-17.2-8.4-26-4.6s-14.5 12.5-14.5 22v72H32c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32H160v72c0 9.6 5.7 18.2 14.5 22s19 2 26-4.6l144-136z"
