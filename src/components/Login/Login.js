@@ -1,9 +1,12 @@
 import React, { useReducer, useContext } from "react";
 
 import Card from "../UI/Card/Card";
-import classes from "./Login.module.css";
 import Button from "../UI/Button/Button";
 import SVG from "../UI/SVG/SVG";
+import Input from "../UI/Input/Input";
+
+import classes from "./Login.module.css";
+
 import AuthContext from "../../store/auth-context";
 
 // State management helper function
@@ -135,40 +138,28 @@ const Login = (props) => {
   return (
     <Card className={classes.login}>
       <form onSubmit={submitHandler}>
-        <div
-          className={`${classes.control} ${
-            !loginState.email.isValid ? classes.invalid : ""
-          }`}
-        >
-          <label htmlFor="email">E-Mail</label>
-          <input
-            type="email"
-            id="email"
-            value={loginState.email.val ?? authCtx.email}
-            onChange={emailChangeHandler}
-            onBlur={validateEmailHandler}
-          />
-          {!loginState.email.isValid && (
-            <p>Please input valid email address!</p>
-          )}
-        </div>
-        <div
-          className={`${classes.control} ${
-            !loginState.password.isValid ? classes.invalid : ""
-          }`}
-        >
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            value={loginState.password.val ?? authCtx.password}
-            onChange={passwordChangeHandler}
-            onBlur={validatePasswordHandler}
-          />
-          {!loginState.password.isValid && (
-            <p>Please input valid password with minimum 6 characters!</p>
-          )}
-        </div>
+        <Input
+          inputType="email"
+          id="email"
+          value={loginState.email.val ?? authCtx.email}
+          onChange={emailChangeHandler}
+          onBlur={validateEmailHandler}
+          validator={!loginState.email.isValid}
+          isValid={!loginState.email.isValid}
+          label="E-Mail"
+          validatorMessage="Please input valid email address!"
+        />
+        <Input
+          inputType="password"
+          id="password"
+          value={loginState.password.val ?? authCtx.password}
+          onChange={passwordChangeHandler}
+          onBlur={validatePasswordHandler}
+          validator={!loginState.password.isValid}
+          isValid={!loginState.password.isValid}
+          label="Password"
+          validatorMessage="Please input valid password with minimum 6 characters!"
+        />
         <div className={classes.actions}>
           <Button
             type="submit"
