@@ -3,6 +3,8 @@
   max-width: 40rem;
   margin: 2rem auto;
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .actions {
@@ -17,7 +19,8 @@
     text-align: center;
   }
 
-  .actions button {
+  .actions button, .actions a {
     width: 100%;
+    margin-bottom: 0;
   }
 }

@@ -1,13 +1,13 @@
 .button {
   font: inherit;
-  background: linear-gradient(90deg, #fd7ebe, #8e1da5);
+  background: linear-gradient(90deg, #282c34, #61dafb);
   box-shadow: 0 1px 5px 0px rgba(0, 0, 0, 0.4);
   border: none;
   color: white;
   padding: 5px 20px;
   cursor: pointer;
   font-size: 1rem;
-  border-radius: 30px;
+  border-radius: 0.3rem;
   text-decoration: none;
   display: flex;
   justify-content: center;
@@ -21,7 +21,7 @@
 
 .button:hover,
 .button:active {
-  background: linear-gradient(90deg, #fd7ebe, #cf2ef0);
+  background: linear-gradient(90deg, #282c34, #61dafb);
   transform: scale(1.05);
 }
 
