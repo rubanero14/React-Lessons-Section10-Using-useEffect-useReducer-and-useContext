@@ -15,6 +15,7 @@ const Home = () => {
 
   useEffect(() => {
     const hooks = [
+      "use",
       "useState",
       "useEffect",
       "useReducer",
@@ -30,6 +31,7 @@ const Home = () => {
       "useLayoutEffect",
       "useSyncExternalStore",
       "useTransition",
+      "useFormStatus",
     ];
 
     // Populating List of Hooks in array above dynamically while ensuring Garbage Collection is enforced

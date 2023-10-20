@@ -1,5 +1,6 @@
 export default class Hooks {
-  static BASE_URL = "https://beta.reactjs.org/reference/react/";
+  static BASE_URL_1 = "https://react.dev/reference/react/";
+  static BASE_URL_2 = "https://react.dev/reference/react-dom/hooks/";
 
   static listData = [];
 
@@ -8,7 +9,8 @@ export default class Hooks {
       this.listData.push({
         id: val.indexOf(item),
         btnContent: item + "()",
-        href: this.BASE_URL + item,
+        href:
+          (item === "useFormStatus" ? this.BASE_URL_2 : this.BASE_URL_1) + item,
       })
     );
   }
