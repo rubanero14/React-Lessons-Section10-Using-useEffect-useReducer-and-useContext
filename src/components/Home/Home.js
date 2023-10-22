@@ -14,7 +14,7 @@ const Home = () => {
   const authCtx = useContext(AuthContext);
 
   useEffect(() => {
-    const hooks = [
+    const ReactHooks = [
       "use",
       "useState",
       "useEffect",
@@ -34,19 +34,56 @@ const Home = () => {
       "useFormStatus",
     ];
 
+    const ReactDOMHooks = ["useFormStatus"];
+
+    const ReactRouterHooks = [
+      "use-action-data",
+      "use-async-error",
+      "use-async-value",
+      "use-before-unload",
+      "use-fetcher",
+      "use-form-action",
+      "use-href",
+      "use-in-router-context",
+      "use-link-click-handler",
+      "use-link-press-handler",
+      "use-loader-data",
+      "use-location",
+      "use-match",
+      "use-matches",
+      "use-navigate",
+      "use-navigation",
+      "use-navigation-type",
+      "use-outlet",
+      "use-outlet-context",
+      "use-params",
+      "use-resolved-path",
+      "use-revalidator",
+      "use-route-error",
+      "use-route-loader-data",
+      "use-routes",
+      "use-search-params",
+      "use-search-params-rn",
+      "use-submit",
+      "use-view-transition-state",
+    ];
+
     // Populating List of Hooks in array above dynamically while ensuring Garbage Collection is enforced
     if (HooksData.listData.length === 0) {
-      HooksData.createNewList(hooks);
+      HooksData.createNewList(ReactHooks, "React Hooks");
+      HooksData.createNewList(ReactDOMHooks, "React DOM Hooks");
+      HooksData.createNewList(ReactRouterHooks, "React Router Hooks");
     }
   }, [authCtx.isLoggedIn]);
-
+  console.log(HooksData.listData);
   return (
     <Card className={classes.home}>
       <h1>Welcome back {authCtx.name}!</h1>
       <br />
       <h2 style={{ fontWeight: "bold" }}>Lets learn about React Hooks</h2>
-      <hr />
-      <ButtonList lists={HooksData.listData} />
+      <ButtonList lists={HooksData.listData} title={"React Hooks"} />
+      <ButtonList lists={HooksData.listData} title={"React DOM Hooks"} />
+      <ButtonList lists={HooksData.listData} title={"React Router Hooks"} />
       <hr />
       <Button
         style={{ textAlign: "center" }}
