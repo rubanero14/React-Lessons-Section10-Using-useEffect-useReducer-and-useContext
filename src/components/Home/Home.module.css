@@ -24,6 +24,14 @@
   background-clip: text;
 }
 
+.home h3 {
+  font-size: 25px;
+  margin-top: 0;
+  color: transparent;
+  background: linear-gradient(90deg, #282c34, #61dafb);
+  background-clip: text;
+}
+
 .home button {
   margin: auto;
 }

@@ -40,7 +40,8 @@ export default class Hooks {
 
       this.listData.push({
         id: val.indexOf(item),
-        btnContent: newHookName,
+        btnContent:
+          title !== "React Router Hooks" ? newHookName : newHookName + "()",
         href: url,
         title: title,
       });
