@@ -19,7 +19,8 @@
     text-align: center;
   }
 
-  .actions button, .actions a {
+  .actions button,
+  .actions a {
     width: 100%;
     margin-bottom: 0;
   }

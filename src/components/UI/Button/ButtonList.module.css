@@ -1,25 +1,25 @@
 .buttonList {
-    margin-block-start: 0;
-    margin-block-end: 0;
-    padding-inline-start: 0;
-    list-style: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+  list-style: none;
 }
 
 .buttonList li {
-    margin-bottom: 15px;
-    margin-right: 10px;
-    width: 220px;
-    display: inline-block;
+  margin-bottom: 15px;
+  margin-right: 10px;
+  width: 220px;
+  display: inline-block;
 }
 
 .buttonList a {
-    width: 100%;
+  width: 100%;
 }
 
 @media (width <= 600px) {
-    .buttonList li {
-        margin-right: -3px;
-        margin-left: -5px;
-        width: 100%;
-    }
+  .buttonList li {
+    margin-right: -3px;
+    margin-left: -5px;
+    width: 100%;
+  }
 }
