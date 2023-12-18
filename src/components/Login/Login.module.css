@@ -5,6 +5,12 @@
   padding: 2rem;
   display: flex;
   flex-direction: column;
+
+  .title {
+    color: transparent;
+    background: linear-gradient(90deg, #282c34, #61dafb);
+    background-clip: text;
+  }
 }
 
 .actions {

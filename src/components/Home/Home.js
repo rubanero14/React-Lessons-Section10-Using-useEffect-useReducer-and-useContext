@@ -10,69 +10,71 @@ import AuthContext from "../../store/auth-context";
 
 import HooksData from "../../utils/hooks-data";
 
+const ReactHooks = [
+  "use",
+  "useState",
+  "useEffect",
+  "useReducer",
+  "useContext",
+  "useRef",
+  "useImperativeHandle",
+  "useId",
+  "useMemo",
+  "useCallback",
+  "useDebugValue",
+  "useDeferredValue",
+  "useInsertionEffect",
+  "useLayoutEffect",
+  "useSyncExternalStore",
+  "useTransition",
+];
+
+const ReactDOMHooks = ["useFormStatus"];
+
+const ReactRouterHooks = [
+  "use-action-data",
+  "use-async-error",
+  "use-async-value",
+  "use-before-unload",
+  "use-fetcher",
+  "use-form-action",
+  "use-href",
+  "use-in-router-context",
+  "use-link-click-handler",
+  "use-link-press-handler",
+  "use-loader-data",
+  "use-location",
+  "use-match",
+  "use-matches",
+  "use-navigate",
+  "use-navigation",
+  "use-navigation-type",
+  "use-outlet",
+  "use-outlet-context",
+  "use-params",
+  "use-resolved-path",
+  "use-revalidator",
+  "use-route-error",
+  "use-route-loader-data",
+  "use-routes",
+  "use-search-params",
+  "use-search-params-rn",
+  "use-submit",
+  "use-view-transition-state",
+];
+
+const ReactNativeHooks = ["useColorScheme", "useWindowDimensions"];
+
 const Home = () => {
   const authCtx = useContext(AuthContext);
 
   useEffect(() => {
-    const ReactHooks = [
-      "use",
-      "useState",
-      "useEffect",
-      "useReducer",
-      "useContext",
-      "useRef",
-      "useImperativeHandle",
-      "useId",
-      "useMemo",
-      "useCallback",
-      "useDebugValue",
-      "useDeferredValue",
-      "useInsertionEffect",
-      "useLayoutEffect",
-      "useSyncExternalStore",
-      "useTransition",
-      "useFormStatus",
-    ];
-
-    const ReactDOMHooks = ["useFormStatus"];
-
-    const ReactRouterHooks = [
-      "use-action-data",
-      "use-async-error",
-      "use-async-value",
-      "use-before-unload",
-      "use-fetcher",
-      "use-form-action",
-      "use-href",
-      "use-in-router-context",
-      "use-link-click-handler",
-      "use-link-press-handler",
-      "use-loader-data",
-      "use-location",
-      "use-match",
-      "use-matches",
-      "use-navigate",
-      "use-navigation",
-      "use-navigation-type",
-      "use-outlet",
-      "use-outlet-context",
-      "use-params",
-      "use-resolved-path",
-      "use-revalidator",
-      "use-route-error",
-      "use-route-loader-data",
-      "use-routes",
-      "use-search-params",
-      "use-search-params-rn",
-      "use-submit",
-      "use-view-transition-state",
-    ];
-
     // Populating List of Hooks in array above dynamically while ensuring Garbage Collection is enforced
     if (HooksData.listData.length === 0) {
       HooksData.createNewList(ReactHooks, "React Hooks");
       HooksData.createNewList(ReactDOMHooks, "React DOM Hooks");
       HooksData.createNewList(ReactRouterHooks, "React Router Hooks");
+      HooksData.createNewList(ReactNativeHooks, "React Native Hooks");
     }
   }, [authCtx.isLoggedIn]);
   console.log(HooksData.listData);
@@ -84,6 +86,7 @@ const Home = () => {
       <ButtonList lists={HooksData.listData} title={"React Hooks"} />
       <ButtonList lists={HooksData.listData} title={"React DOM Hooks"} />
       <ButtonList lists={HooksData.listData} title={"React Router Hooks"} />
+      <ButtonList lists={HooksData.listData} title={"React Native Hooks"} />
       <hr />
       <Button
         style={{ textAlign: "center" }}

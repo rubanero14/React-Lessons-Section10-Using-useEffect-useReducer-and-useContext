@@ -148,6 +148,7 @@ const Login = (props) => {
 
   return (
     <Card className={classes.login}>
+      <h1 className={classes.title}>Just Mock Login ID and Password!</h1>
       <form onSubmit={submitHandler}>
         <Input
           inputType="email"

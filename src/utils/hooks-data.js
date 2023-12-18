@@ -2,6 +2,7 @@ export default class Hooks {
   static BASE_URL_1 = "https://react.dev/reference/react/";
   static BASE_URL_2 = "https://react.dev/reference/react-dom/hooks/";
   static BASE_URL_3 = "https://reactrouter.com/en/main/hooks/";
+  static BASE_URL_4 = "https://reactnative.dev/docs/";
 
   static listData = [];
 
@@ -10,12 +11,15 @@ export default class Hooks {
       case "React Hooks":
         this.MAIN_URL = this.BASE_URL_1;
         break;
+      case "React DOM Hooks":
+        this.MAIN_URL = this.BASE_URL_2;
+        break;
       case "React Router Hooks":
         this.MAIN_URL = this.BASE_URL_3;
         break;
+      case "React Native":
       default:
-      case "React DOM Hooks":
-        this.MAIN_URL = this.BASE_URL_2;
+        this.MAIN_URL = this.BASE_URL_4;
         break;
     }
   };
